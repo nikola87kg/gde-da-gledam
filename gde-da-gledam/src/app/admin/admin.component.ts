@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminComponent implements OnInit {
 
+  link: string;
+  name: string;
   constructor() { }
 
   ngOnInit() {

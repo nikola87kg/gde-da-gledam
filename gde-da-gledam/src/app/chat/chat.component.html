@@ -1,10 +1,14 @@
 <div class="chat-wrapper">
   <div *ngIf="isChatOn" class="chat-live">
-    <h5 class="chat-header">
+    <h5 class="chat-header clickable" (click)="chatToggle()">
         Istorija razgovora
     </h5>    
     <div class="chat-history">
-        <p *ngFor="let message of chatHistory">{{message}}</p>
+        <p *ngFor="let message of chatHistory">
+            <span>
+                {{message}}
+            </span>
+        </p>
     </div>
     <input 
       #currentMessage

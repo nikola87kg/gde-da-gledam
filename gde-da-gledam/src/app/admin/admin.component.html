@@ -1,5 +1,24 @@
 <div class="page-wrapper">
 
-  Hello from admin
+  <form>
+      <mat-form-field class="form-input">
+        <input 
+          matInput 
+          placeholder="Unesi naziv sajta..." 
+          [(ngModel)]="name"
+          name="name">
+      </mat-form-field>
+      <mat-form-field class="form-input full-input">
+        <input 
+          matInput 
+          placeholder="Unesi URL link..." 
+          [(ngModel)]="link"
+          name="link">
+      </mat-form-field>
+      <button mat-raised-button color="accent">
+        Sačuvaj u bazu
+      </button>
+    
+  </form>
 
 </div>

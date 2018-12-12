@@ -21,7 +21,9 @@ export class ChatComponent implements OnInit {
   }
 
   pushMessage(message) {
-    this.chatHistory.push(message);
+    if(message) {
+      this.chatHistory.push(message);
+    }
   }
 
 }
