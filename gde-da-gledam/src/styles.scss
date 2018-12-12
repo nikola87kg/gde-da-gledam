@@ -10,6 +10,10 @@ body {
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 .page-wrapper {
     min-height: calc(100vh - 56px);
     padding: 20px;
@@ -18,4 +22,42 @@ body {
 .clickable {
     user-select: none;
     cursor: pointer;
+}
+
+.toolbar-icon {
+    padding: 0 14px;
+  }
+  
+.toolbar-spacer {
+flex: 1 1 auto;
+}
+
+.url-link {
+    display: block;
+    margin-bottom: 5px;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    border-bottom: 1px solid rgb(226, 226, 226);
+    padding: 5px;
+    &:hover {
+        color: rgb(105, 27, 168);
+    }
+    &:last-of-type {
+        border-bottom: 1px solid transparent;
+    }
+}
+
+px-chat {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 400px;
+}
+
+input {
+    outline: 0;
+    border: 1px solid transparent;
+    &:hover, &:focus {
+        outline: 0;
+    }
 }

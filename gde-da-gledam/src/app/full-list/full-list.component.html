@@ -1,5 +1,23 @@
 <div class="page-wrapper">
 
-  TEST
+    <mat-toolbar color="accent">
+
+        <mat-toolbar-row>
+            <span>{{listName}}</span>
+            <span class="toolbar-spacer"></span>
+            <mat-icon class="toolbar-icon">accessibility_new</mat-icon>
+        </mat-toolbar-row>
+
+    </mat-toolbar>
+    <mat-list>
+        <mat-list-item class="clickable" *ngFor="let item of list">  
+            <a 
+                class="url-link"
+                [href]="item.url" 
+                target="_blank">
+                    {{item.name}}
+            </a>
+        </mat-list-item>
+    </mat-list>
 
 </div>

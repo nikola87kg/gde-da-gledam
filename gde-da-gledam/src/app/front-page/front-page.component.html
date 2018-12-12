@@ -1,18 +1,38 @@
 <div class="page-wrapper">
-  <mat-grid-list cols="3" rowHeight="300px" gutterSize="22px">
-    <mat-grid-tile
-        *ngFor="let tile of tiles"
-        [colspan]="tile.cols"
-        [rowspan]="tile.rows"
-        [style.background]="tile.color">
-        <div class="inner-tile">
-            <h4>{{tile.header}}</h4>
-            <div class="url-list">
-              <a class="url-link" href="item" *ngFor="let item of tile.list ">{{item}}</a>
+    <mat-grid-list cols="3" rowHeight="300px" gutterSize="22px">
+        <!-- Single Tile -->
+        <mat-grid-tile 
+            *ngFor="let tile of tiles" 
+            [colspan]="tile.cols" 
+            [rowspan]="tile.rows" 
+            [style.background]="tile.color">
+
+            <div class="inner-tile">
+
+                <!-- Header -->
+                <h4 class="tile-header">{{tile.header}}</h4>
+
+                <!-- URL List -->
+                <div class="url-list">
+                    <a 
+                        class="url-link" 
+                        [href]="item" 
+                        target="_blank"
+                        *ngFor="let item of tile.list">
+                        {{ item }}
+                    </a>
+                </div>
+
+                <!-- Button -->
+                <button 
+                    mat-raised-button 
+                    color="accent" 
+                    class="mi-button" 
+                    (click)="goToList(tile.header)">
+                        Pogledaj kompletnu listu
+                </button>
+
             </div>
-            
-            <button mat-raised-button color="accent" class="mi-button" (click)="goToList(tile.header)">Pogledaj celu listu</button>
-        </div>
-    </mat-grid-tile>
-  </mat-grid-list>
+        </mat-grid-tile>
+    </mat-grid-list>
 </div>

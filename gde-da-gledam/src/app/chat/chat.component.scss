@@ -1,0 +1,49 @@
+.chat-title {
+    background: rgb(175, 164, 194);
+    padding:10px 20px;
+    color: white;
+    &:hover {
+        background: rgb(157, 139, 187);
+    }
+}
+
+.chat-live {
+    border: 1px solid rgb(175, 164, 194);
+    background: white;
+    padding: 10px;
+    color: black;
+    height: 270px;
+    position: relative;
+    padding-bottom: 45px;
+}
+
+.chat-header {
+    margin: 0;
+    color: #673ab7;
+    border-bottom: 1px solid rgb(175, 164, 194);
+    padding: 10px 20px;
+    font-weight: normal;
+    font-size: 16px;
+}
+
+.chat-history {
+    overflow-y: auto;
+    height: 200px;
+    margin: 10px 0;
+    p {
+        padding: 5px 10px;
+        font-size: 15px;
+        margin: 0;
+    }
+}
+
+.chat-message {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    background: rgb(250, 244, 225);
+    border-top: 1px solid rgb(245, 229, 176);
+    padding: 10px 15px;
+    font-size: 18px;
+}

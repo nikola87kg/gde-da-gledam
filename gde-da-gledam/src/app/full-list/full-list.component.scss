@@ -1,0 +1,29 @@
+mat-list {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+
+.mat-list-item {
+    border-bottom: 1px solid rgb(189, 186, 189);
+    vertical-align: middle;
+    &:hover {
+        color: purple;
+        border-bottom: 1px solid purple;
+        font-weight: bold;
+        a {
+            color: purple;
+        }
+    }
+    a {
+        padding-top: 15px;
+        width: 100%;
+        height: 100%;
+    }
+    &:last-child {
+        border-bottom: 1px solid transparent;
+        &:hover {
+            border-bottom: 1px solid transparent;
+        }
+    }
+}

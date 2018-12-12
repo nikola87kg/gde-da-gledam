@@ -1,0 +1,17 @@
+<div class="chat-wrapper">
+  <div *ngIf="isChatOn" class="chat-live">
+    <h5 class="chat-header">
+        Istorija razgovora
+    </h5>    
+    <div class="chat-history">
+        <p *ngFor="let message of chatHistory">{{message}}</p>
+    </div>
+    <input 
+      #currentMessage
+      class="chat-message" 
+      type="text" 
+      [(ngModel)]="chatMessage" 
+      (keyup.enter)="pushMessage(currentMessage.value); currentMessage.value = ''">
+  </div>
+  <div class="chat-title clickable" (click)="chatToggle()">Live Chat</div>
+</div>

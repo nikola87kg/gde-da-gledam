@@ -13,18 +13,10 @@ mat-grid-tile {
     margin-bottom: 15px;
 }
 
-.url-link {
-    display: block;
-    margin-bottom: 5px;
-    text-decoration: none;
-    color: rgb(0, 0, 0);
-    border-bottom: 1px solid rgb(226, 226, 226);
-    padding: 5px;
-    &:hover {
-        color: rgb(105, 27, 168);
-        font-weight: bold;
-    }
-    &:last-of-type {
-        border-bottom: 1px solid transparent;
-    }
+
+.tile-header {
+   color: #673ab7;
+   font-size: 18px;
+   margin-bottom: 10px;
+   padding-left: 5px;
 }

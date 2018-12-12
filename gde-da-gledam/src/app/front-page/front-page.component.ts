@@ -22,7 +22,7 @@ export class FrontPageComponent implements OnInit {
     { header: 'Filmovi', text: '2', cols: 1, rows: 1, color: 'white', list: ['www.piratebay.org', 'www.rutracker.org', '3', '4', 'test'] },
     { header: 'Serije', text: '3', cols: 1, rows: 1, color: 'white', list: ['1', '2', '3', '5', 'test'] },
     { header: 'Aplikacije', text: '4', cols: 1, rows: 1, color: 'white', list: ['2', '3', '4', '5', 'test'] },
-    { header: 'Nesot', text: '5', cols: 1, rows: 1, color: 'white', list: ['1', '3', '4', '5', 'test'] },
+    { header: 'Igrice', text: '5', cols: 1, rows: 1, color: 'white', list: ['1', '3', '4', '5', 'test'] },
     { header: 'Blabla', text: '6', cols: 1, rows: 1, color: 'white', list: ['1', '3', '4', '5', 'test'] },
   ];
 
