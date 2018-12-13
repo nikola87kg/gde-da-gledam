@@ -14,7 +14,7 @@ import { AppMaterialModule } from './app.material.module';
 import { FrontPageComponent } from './front-page/front-page.component';
 import { FullListComponent } from './full-list/full-list.component';
 import { AdminGuard } from './admin/admin.guard';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptor } from './_services/auth.intereceptor';
 import { ChatComponent } from './chat/chat.component';
 
@@ -30,6 +30,7 @@ import { ChatComponent } from './chat/chat.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     BrowserAnimationsModule,
     AppMaterialModule,

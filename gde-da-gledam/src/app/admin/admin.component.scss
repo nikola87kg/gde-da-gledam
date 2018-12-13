@@ -1,6 +1,10 @@
 
 .form-input {
-    width: 500px;
+    width: 200px;
     max-width: 90%;
-    display: block;
+    display: inline-block;
+    margin: 10px;
+    &.wider-input {
+        width: 300px;
+    }
 }

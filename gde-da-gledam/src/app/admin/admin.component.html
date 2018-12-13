@@ -1,24 +1,49 @@
 <div class="page-wrapper">
 
-  <form>
+  <!-- FORM -->
+  <form (submit)="postLink()">
+      <mat-form-field class="form-input wider-input">
+        <input 
+          matInput 
+          placeholder="Unesi URL link..." 
+          [(ngModel)]="linkModel.link"
+          name="link">
+      </mat-form-field>
       <mat-form-field class="form-input">
         <input 
           matInput 
           placeholder="Unesi naziv sajta..." 
-          [(ngModel)]="name"
+          [(ngModel)]="linkModel.name"
           name="name">
       </mat-form-field>
-      <mat-form-field class="form-input full-input">
+      <mat-form-field class="form-input">
         <input 
           matInput 
-          placeholder="Unesi URL link..." 
-          [(ngModel)]="link"
+          placeholder="Unesi material ikonicu..." 
+          [(ngModel)]="linkModel.icon"
           name="link">
       </mat-form-field>
-      <button mat-raised-button color="accent">
+      <mat-form-field class="form-input">
+        <mat-select 
+          placeholder="Kategorije" 
+          [(ngModel)]="linkModel.category"
+          name="category">
+            <mat-option 
+                *ngFor="let option of categoryOptions" 
+                [value]="option" >
+                {{option}}
+            </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button mat-raised-button color="accent" type="submit">
         Sačuvaj u bazu
       </button>
     
   </form>
+
+  <!-- TABLE -->
+
+  <br>
+{{linkModel | json}}
 
 </div>
