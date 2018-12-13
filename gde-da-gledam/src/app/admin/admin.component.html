@@ -43,7 +43,70 @@
 
   <!-- TABLE -->
 
-  <br>
-{{linkModel | json}}
+<!-- TABLE -->
+<div class="table-wrapper">
+  <table mat-table matSort [dataSource]="dataSource">
+
+      <!-- Position Column Setup -->
+      <ng-container matColumnDef="position">
+          <th mat-header-cell *matHeaderCellDef> </th>
+          <td mat-cell *matCellDef="let i = index">
+              {{ previousPageIndex + i + 1 }}
+          </td>
+      </ng-container>
+
+      <!-- Name Column Setup -->
+      <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Naziv </th>
+          <td mat-cell *matCellDef="let item">
+              <span class="name-text">
+                  {{ item.name }}
+              </span>
+          </td>
+      </ng-container>
+
+      <!-- Link Column Setup -->
+      <ng-container matColumnDef="link">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Hiperlink </th>
+          <td mat-cell *matCellDef="let item"> {{ item.link }} </td>
+      </ng-container>
+
+      <!-- Category Column Setup -->
+      <ng-container matColumnDef="category">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Kategorija </th>
+          <td mat-cell *matCellDef="let item"> {{ item.category }} </td>
+      </ng-container>
+
+      <!-- Icon Column Setup -->
+      <ng-container matColumnDef="icon">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Ikonica </th>
+          <td mat-cell *matCellDef="let item">
+              <span style="white-space: pre-wrap;">{{ item.icon }} </span>
+          </td>
+      </ng-container>
+
+      <!-- Created At Column Steup -->
+      <ng-container matColumnDef="created">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Datum kreiranja </th>
+          <td mat-cell *matCellDef="let item">
+              <span>{{ item.createdAt | date: 'dd. MM. yyyy' }} </span>
+          </td>
+      </ng-container>
+
+      <!-- rows -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns;"> </tr>
+      <tr mat-row *matRowDef="let row; let i = index;columns: displayedColumns;" >
+      </tr>
+  </table>
+</div>
+
+<mat-paginator
+  #paginator
+  [pageSize]="5"
+  [pageSizeOptions]="[5, 10, 20, 50]"
+  (page)="pageEvent = onPageChanged($event)">
+  <!-- [showFirstLastButtons]="screenSize !== 'small' " -->
+</mat-paginator>
+
 
 </div>

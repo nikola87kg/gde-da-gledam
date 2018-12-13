@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ChatService } from '../_services/chat.service';
 
 @Component({
   selector: 'px-chat',
@@ -11,9 +12,12 @@ export class ChatComponent implements OnInit {
   chatMessage:string = 'cao...';
   chatHistory = [];
 
-  constructor() { }
+  constructor(private chat: ChatService) { }
 
   ngOnInit() {
+    this.chat.messages.subscribe(msg => {
+      this.chatHistory.push(msg.text);
+    })
   }
 
   chatToggle() {
@@ -22,7 +26,7 @@ export class ChatComponent implements OnInit {
 
   pushMessage(message) {
     if(message) {
-      this.chatHistory.push(message);
+      this.chat.sendMsg(message);
     }
   }
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+
 export interface Tile {
   color: string;
   cols: number;
@@ -34,5 +35,5 @@ export class FrontPageComponent implements OnInit {
   goToList(list) {
     this.router.navigate(['/lista/' + list])
   }
-
+  
 }
