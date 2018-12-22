@@ -15,3 +15,10 @@
         width: 100%;
     }
 }
+
+.delete-button {
+    color: gray;
+    &:hover {
+        color: rgb(194, 18, 18);
+    }
+}

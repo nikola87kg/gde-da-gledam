@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { LinkService } from '../_services/link.service';
 
 @Component({
   selector: 'px-full-list',
@@ -10,23 +11,27 @@ export class FullListComponent implements OnInit {
 
   listName: string;
 
-  list = [
-    {name: 'FromHot', url: 'http://www.fromhot.com/' },
-    {name: 'StreamWatch', url: 'http://www.stream2watch.ru/' },
-    {name: 'ESPN', url: 'http://www.espn.com/watch/'},
-    {name: 'SonyLiv', url: 'http://www.sonyliv.com/custompage/all_sport_page'},
-    {name: 'BatmanStream', url: 'https://www.batmanstream.net/'},
-    {name: 'Crick Free', url: 'http://crickfree.org/'},
-    {name: 'Stream Woop', url: 'https://streamwoop.net/'}
-  ];
+  list = [];
 
-  constructor(private activatedRoute: ActivatedRoute) {
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private linkService: LinkService
+    ) {
     this.activatedRoute.params.subscribe(params => {
           this.listName = params['list'];
       });
   }
 
   ngOnInit() {
+    this.getAllLinks();
+  }
+
+  getAllLinks() {
+    this.linkService.getAll().subscribe( response => {
+      this.list = response.filter( item => {
+        return item.category === this.listName
+      });
+    })
   }
 
 }

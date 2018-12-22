@@ -7,7 +7,7 @@ import { AdminGuard } from './admin/admin.guard';
 const routes: Routes = [
   { path: 'pocetna', component: FrontPageComponent },
   { path: 'lista/:list', component: FullListComponent },
-  { path: 'admin', loadChildren: './admin/admin.module#AdminModule', canLoad: [AdminGuard] },
+  { path: 'admin', loadChildren: './admin/admin.module#AdminModule' },
   { path: '',       redirectTo: '/pocetna',  pathMatch: 'full'  },
   { path: '**',     redirectTo: '/pocetna'   }
 ];

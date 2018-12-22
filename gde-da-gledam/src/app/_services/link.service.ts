@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 
 export interface LinkInterface {
+    _id?: string;
     name: string;
     link: string;
     category: string;
@@ -30,6 +31,11 @@ export class LinkService {
     /* Post new link */
     post(payload) {
         return this.http.post<LinkInterface>(this.baseUrl + '/link', payload)
+    }
+
+    /* Delete link */
+    delete(id) {
+        return this.http.delete<LinkInterface>(this.baseUrl + '/link/' + id)
     }
 
 }

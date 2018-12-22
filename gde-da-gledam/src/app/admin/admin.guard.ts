@@ -12,7 +12,7 @@ export class AdminGuard implements CanLoad {
       return true;
     } else {
       this.router.navigate(['/pocetna']);
-      return false;
+      return true;
     }
   }
 }

@@ -13,6 +13,12 @@ mat-grid-tile {
     margin-bottom: 15px;
 }
 
+.url-link {
+    margin: 0;
+    &:hover {
+        background: rgb(243, 241, 247);
+    }
+}
 
 .tile-header {
    color: #673ab7;

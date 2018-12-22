@@ -14,11 +14,11 @@ export class HeaderComponent implements OnInit {
   }
 
   goToFrontPage() {
-      this.router.navigate(['/pocetna/'])
+      this.router.navigate(['/pocetna'])
   }
 
   goToAdminPage() {
-      this.router.navigate(['/admin/'])
+      this.router.navigate(['/admin'])
   }
 
 }

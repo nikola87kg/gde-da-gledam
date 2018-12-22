@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { LinkService } from '../_services/link.service';
 
 /* Material */
-import { MatSort, MatPaginator, MatTableDataSource, MatSnackBar } from '@angular/material';
+import { MatSort, MatPaginator, MatTableDataSource } from '@angular/material';
 
 @Component({
   selector: 'px-admin',
@@ -19,7 +19,7 @@ export class AdminComponent implements OnInit {
   linksfromDB = [];
   linkModel = {name: '', link: '', icon: '', category: ''};
   categoryOptions = ['sport', 'online', 'torrent', 'apps', 'games'];
-  displayedColumns = [ 'position', 'link', 'name','icon', 'category', 'created' ];
+  displayedColumns = [ 'position', 'link', 'name','icon', 'category', 'created', 'remove' ];
 
   constructor(private linkService: LinkService) { }
 
@@ -34,9 +34,15 @@ export class AdminComponent implements OnInit {
     } )
   }
 
+  deleteLink(item) {
+    this.linkService.delete(item._id).subscribe( () => {
+      this.getAllLinks();
+    })
+  }
+
   getAllLinks() {
     this.linkService.getAll().subscribe( response => {
-      this.linksfromDB = response;
+      this.linksfromDB = response.sort();
       this.dataSource = new MatTableDataSource(response);
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
