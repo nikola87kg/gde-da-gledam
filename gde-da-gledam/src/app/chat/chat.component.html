@@ -4,10 +4,10 @@
         Istorija razgovora
     </h5>    
     <div class="chat-history">
-        <p *ngFor="let message of chatHistory">
-            <span>
-                {{message}}
-            </span>
+        <p 
+            *ngFor="let chat of chatHistory" 
+            [class.user]="chat.id === userId">
+            <span> {{chat.message}} </span>
         </p>
     </div>
     <input 
@@ -15,7 +15,7 @@
       class="chat-message" 
       type="text" 
       [(ngModel)]="chatMessage" 
-      (keyup.enter)="pushMessage(currentMessage.value); currentMessage.value = ''">
+      (keyup.enter)="onSend(currentMessage.value); currentMessage.value = ''">
   </div>
   <div class="chat-title clickable" (click)="chatToggle()">Live Chat</div>
 </div>

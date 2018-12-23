@@ -35,11 +35,20 @@
         font-size: 15px;
         display: block;
         margin: 5px;
-        text-align: right;
+        text-align: left;
         span {
             background: rgb(203, 225, 233);
             padding: 5px 10px;
             border-radius: 10px;
+        }
+        &.user {
+        font-size: 15px;
+        display: block;
+        margin: 5px;
+        text-align: right;
+        span {
+            background: rgb(220, 233, 203);
+        }
         }
     }
 }
