@@ -1,6 +1,7 @@
 .chat-title {
     background: rgb(175, 164, 194);
     padding:10px 20px;
+    font-size: 15px;
     color: white;
     &:hover {
         background: rgb(157, 139, 187);
@@ -12,7 +13,7 @@
     background: white;
     padding: 10px;
     color: black;
-    height: 300px;
+    height: 400px;
     position: relative;
     padding-bottom: 45px;
 }
@@ -28,7 +29,7 @@
 
 .chat-history {
     overflow-y: auto;
-    height: 180px;
+    height: 280px;
     margin: 10px 0;
     p {
         padding: 5px 10px;
@@ -36,19 +37,21 @@
         display: block;
         margin: 5px;
         text-align: left;
-        span {
+        .chat-cloud {
             background: rgb(203, 225, 233);
             padding: 5px 10px;
             border-radius: 10px;
+            display: inline-block;
+        }
+        .chat-name {
+            color: gray;
+            font-size: 10px;
         }
         &.user {
-        font-size: 15px;
-        display: block;
-        margin: 5px;
         text-align: right;
-        span {
-            background: rgb(220, 233, 203);
-        }
+            .chat-cloud {
+                background: rgb(220, 233, 203);
+            }
         }
     }
 }
@@ -61,5 +64,15 @@
     background: rgb(250, 244, 225);
     border-top: 1px solid rgb(245, 229, 176);
     padding: 10px 15px;
-    font-size: 18px;
+    font-size: 15px;
+}
+
+.chat-username {
+    background: #f8f8f8;
+    border-bottom: 2px solid purple;
+    border-radius: 5px 5px 0 0;
+    padding: 8px;
+    display: inline-block;
+    width: 200px;
+    margin-left: 10px;
 }
