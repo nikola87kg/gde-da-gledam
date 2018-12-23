@@ -28,6 +28,7 @@ export class ChatComponent implements OnInit {
     this.chatService.messages.subscribe(data => {
       console.log(data);
       this.chatHistory.push(data);
+      localStorage.setItem("chat_history", JSON.stringify(this.chatHistory));
     });
   }
 
@@ -35,6 +36,7 @@ export class ChatComponent implements OnInit {
     this.websocketService.userId.subscribe(data => {
       this.userId = data;
       this.getUsername();
+      this.getChatHistory();
     });
   }
 
@@ -57,21 +59,29 @@ export class ChatComponent implements OnInit {
 
   setUsername() {
     if (this.username) {
-      localStorage.setItem("account_username", this.username);
+      localStorage.setItem("chat_username", this.username);
     } else {
-      this.username = "Gost " + this.userId.slice(0, 15);
+      this.username = "Gost " + this.userId;
     }
   }
 
   getUsername() {
-    const storageName = localStorage.getItem("account_username");
+    const storageName = localStorage.getItem("chat_username");
     console.log(storageName);
     if (storageName && storageName !== '') {
       this.username = storageName;
     } else if (this.userId) {
-      this.username = "Gost " + this.userId.slice(0, 15);
+      this.username = "Gost " + this.userId;
     } else {
-      this.username = "Gost"; 
+      this.username = "Gost";
     }
+  }
+
+  getChatHistory() {
+    const storageHistory = localStorage.getItem("chat_history");
+    console.log(storageHistory);
+    if (storageHistory && storageHistory !== "") {
+      this.chatHistory = JSON.parse(storageHistory);
+    } 
   }
 }
