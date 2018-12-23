@@ -27,21 +27,33 @@
         [(ngModel)]="linkModel.category"
         name="category"
       >
-        <mat-option *ngFor="let option of categoryOptions" [value]="option">
+        <mat-option 
+            *ngFor="let option of categoryOptions" 
+            [value]="option">
           {{ option }}
         </mat-option>
       </mat-select>
     </mat-form-field>
     <!-- Vip -->
-    <mat-checkbox [(ngModel)]="linkModel.vip" color="primary" name="vip">
-      VIP
+    <mat-checkbox 
+        [(ngModel)]="linkModel.vip" 
+        color="primary" 
+        name="vip">
+        VIP
     </mat-checkbox>
     <!-- Submit Button -->
-    <button mat-raised-button [color]="submitButton.color" type="submit">
-      {{submitButton.text}}
+    <button 
+        mat-raised-button 
+        [color]="submitButton.color" 
+        type="submit">
+        {{submitButton.text}}
     </button>
     <!-- Reset Button -->
-    <button mat-raised-button color="primary" type="button" (click)="onResetForm()">
+    <button 
+        mat-raised-button 
+        color="primary" 
+        type="button" 
+        (click)="onResetForm()">
       <mat-icon>close</mat-icon>
     </button>
   </form>
@@ -123,14 +135,14 @@
         *matRowDef="let row; let i = index; columns: displayedColumns"
       ></tr>
     </table>
-  </div>
-
   <mat-paginator
     #paginator
     [pageSize]="5"
     [pageSizeOptions]="[5, 10, 20, 50]"
     (page)="pageEvent = onPageChanged($event)"
   >
-    <!-- [showFirstLastButtons]="screenSize !== 'small' " -->
+    <!-- [showFirstLastButtons]="screen !== 'small' " -->
   </mat-paginator>
+  </div>
+
 </div>
