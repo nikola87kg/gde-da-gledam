@@ -27,12 +27,18 @@ export class LinkService {
         return this.http.get<LinkInterface[]>(this.baseUrl + '/link');
     }
 
-    /* Post new link */
+    /* Create new link */
     post(payload) {
         return this.http.post<LinkInterface>(this.baseUrl + '/link', payload)
     }
 
-    /* Delete link */
+
+    /* Update a link */
+    put(payload, id) {
+        return this.http.put<LinkInterface>(this.baseUrl + '/link/' + id, payload)
+    }
+
+    /* Delete a link */
     delete(id) {
         return this.http.delete<LinkInterface>(this.baseUrl + '/link/' + id)
     }

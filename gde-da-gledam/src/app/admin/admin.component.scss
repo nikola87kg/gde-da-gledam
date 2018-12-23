@@ -16,10 +16,19 @@
     }
 }
 
+.update-button {
+    color: gray;
+    &:hover {
+        color: rgb(230, 193, 28);
+        transform: scale(1.2);
+    }
+}
+
 .delete-button {
     color: gray;
     &:hover {
-        color: rgb(194, 18, 18);
+        color: rgb(235, 20, 20);
+        transform: scale(1.2);
     }
 }
 
@@ -35,4 +44,8 @@ mat-icon {
 
 mat-checkbox {
     margin: auto 15px;
+}
+
+button {
+    margin-right: 10px;
 }
