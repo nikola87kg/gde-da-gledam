@@ -14,7 +14,7 @@
       />
     </h5>
     <div class="chat-history">
-      <p *ngFor="let chat of chatHistory" [class.user]="chat.id === userId">
+      <p *ngFor="let chat of chatHistory" [class.user]="chat.name === username">
         <span class="chat-cloud">
           <span class="chat-name" >
             {{ chat.name }}
