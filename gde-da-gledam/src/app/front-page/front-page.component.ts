@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { LinkService } from '../_services/link.service';
+import { SharedService } from '../_services/shared.service';
 
 
 export interface Tile {
@@ -20,14 +21,21 @@ export class FrontPageComponent implements OnInit {
     { header: 'sport', list: [] }
   ];
 
+  screen: String;
 
   constructor(
     public router: Router,
-    public linkService: LinkService
+    public linkService: LinkService,
+    public sharedService: SharedService 
   ) {}
 
   ngOnInit() {
+    this.getScreenWidth();
     this.getAllLinks();
+  }
+
+  getScreenWidth() {
+    this.sharedService.screen.subscribe( result => this.screen = result);
   }
 
   getAllLinks() {

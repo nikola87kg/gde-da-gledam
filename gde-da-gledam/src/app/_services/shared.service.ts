@@ -8,6 +8,6 @@ import { BehaviorSubject } from 'rxjs';
 export class SharedService {
     constructor() {}
 
-    screenSize = new BehaviorSubject('small');
+    screen = new BehaviorSubject(null);
 
 }

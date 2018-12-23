@@ -17,9 +17,9 @@ export class AdminComponent implements OnInit {
   previousPageIndex = 0;
   dataSource;
   linksfromDB = [];
-  linkModel = {name: '', link: '', icon: '', category: ''};
+  linkModel = {name: '', link: '',  category: '', vip: false};
   categoryOptions = ['sport', 'online', 'torrent', 'apps', 'games'];
-  displayedColumns = [ 'position', 'link', 'name','icon', 'category', 'created', 'remove' ];
+  displayedColumns = [ 'position', 'link', 'name', 'vip', 'category', 'created', 'remove' ];
 
   constructor(private linkService: LinkService) { }
 
@@ -29,7 +29,7 @@ export class AdminComponent implements OnInit {
 
   postLink() {
     this.linkService.post(this.linkModel).subscribe( response => {
-      this.linkModel = {name: '', link: '', icon: '', category: ''}
+      this.linkModel = {name: '', link: '', category: '', vip: false}
       this.getAllLinks();
     } )
   }

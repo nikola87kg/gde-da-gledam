@@ -8,22 +8,25 @@ mat-list {
     border-bottom: 1px solid rgb(189, 186, 189);
     vertical-align: middle;
     &:hover {
-        color: purple;
-        border-bottom: 1px solid purple;
-        font-weight: bold;
-        a {
-            color: purple;
+        background: rgb(255, 251, 215);
+        border-bottom: 1px solid rgb(202, 42, 202);
+        a.url-link {
+            color: rgb(202, 42, 202); 
         }
     }
-    a {
+    a.url-link {
         padding-top: 15px;
         width: 100%;
         height: 100%;
+        vertical-align: middle;
     }
-    &:last-child {
-        border-bottom: 1px solid transparent;
-        &:hover {
-            border-bottom: 1px solid transparent;
-        }
+    span {
+        color: rgb(202, 42, 202);
+        display: inline-block;
+        vertical-align: middle;
     }
+}
+
+.mat-list-base {
+    padding: 0;
 }

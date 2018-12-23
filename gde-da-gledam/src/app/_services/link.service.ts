@@ -8,7 +8,6 @@ export interface LinkInterface {
     name: string;
     link: string;
     category: string;
-    icon: string;
     vip?: boolean;
 }
 
