@@ -10,7 +10,6 @@ import { WebsocketService } from '../_services/websocket.service';
 export class ChatComponent implements OnInit, AfterViewChecked {
   userId: string;
   username: string;
-  isChatOn: boolean;
   chatMessage: string;
   chatHistory = [];
   disableScrollDown = false;
@@ -44,10 +43,6 @@ export class ChatComponent implements OnInit, AfterViewChecked {
       this.getUsername();
       this.getChatHistory();
     });
-  }
-
-  chatToggle() {
-    this.isChatOn = !this.isChatOn;
   }
 
   onNameChange(e) {

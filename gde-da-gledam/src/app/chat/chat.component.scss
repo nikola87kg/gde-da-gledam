@@ -9,11 +9,10 @@
 }
 
 .chat-live {
-    border: 1px solid rgb(175, 164, 194);
-    background: white;
-    padding: 10px;
+    background: rgb(252, 255, 254);
+    padding: 10px 20px;
     color: black;
-    height: 400px;
+    height: 100%;
     position: relative;
     padding-bottom: 45px;
 }
@@ -29,7 +28,7 @@
 
 .chat-history {
     overflow-y: auto;
-    height: 280px;
+    height: calc(100% - 70px);
     margin: 10px 0;
     p {
         padding: 5px 10px;

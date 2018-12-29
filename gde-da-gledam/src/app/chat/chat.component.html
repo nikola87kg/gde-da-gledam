@@ -1,19 +1,22 @@
-<div class="chat-wrapper">
-  <div *ngIf="isChatOn" class="chat-live">
+
+  <div  class="chat-live">
+    <!-- Choose Name -->
     <h5
       class="chat-header clickable"
-      (click)="chatToggle()"
-      (change)="setUsername()"
-    >
-      Promeni ime:
+      (change)="setUsername()" >
+      Izaberi ime:
       <input
         class="chat-username"
         maxlength="25"
         [(ngModel)]="username"
-        (click)="onNameChange($event)"
-      />
+        (click)="onNameChange($event)"/>
     </h5>
-    <div #content class="chat-history" (scroll)="onScroll()">
+
+    <!-- Chat history -->
+    <div 
+      #content 
+      class="chat-history" 
+      (scroll)="onScroll()">
       <p 
         *ngFor="let chat of chatHistory" 
         class="single-message"
@@ -27,16 +30,14 @@
         </span>
       </p>
     </div>
+
+    <!-- Chat input -->
     <input
       #currentMessage
       class="chat-message"
-      type="text"
+      placeholder="Kucaj poruku..."
       [(ngModel)]="chatMessage"
       (keyup.enter)="onSend(currentMessage.value); currentMessage.value = ''"
       (keyup.esc)="currentMessage.value = ''"
     />
   </div>
-  <div class="chat-title clickable" (click)="chatToggle()">
-    Live Chat ({{ username }})
-  </div>
-</div>

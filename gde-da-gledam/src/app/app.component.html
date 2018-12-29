@@ -1,9 +1,19 @@
-
 <px-header></px-header>
 
+<mat-drawer-container >
+  <mat-drawer #drawer mode="side" position="end">
+    <px-chat></px-chat>
+  </mat-drawer>
 
-<router-outlet></router-outlet>
+  <mat-drawer-content>
+    <router-outlet></router-outlet>
+    <button 
+    mat-raised-button 
+    class="open-chat"
+    (click)="drawer.toggle()">Dopisivanje</button>
 
-<px-chat></px-chat>
+  </mat-drawer-content>
 
-<px-footer></px-footer>
+</mat-drawer-container>
+
+<!-- <px-footer></px-footer> -->
