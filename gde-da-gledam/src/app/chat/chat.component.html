@@ -13,8 +13,11 @@
         (click)="onNameChange($event)"
       />
     </h5>
-    <div class="chat-history">
-      <p *ngFor="let chat of chatHistory" [class.user]="chat.name === username">
+    <div #content class="chat-history" (scroll)="onScroll()">
+      <p 
+        *ngFor="let chat of chatHistory" 
+        class="single-message"
+        [class.user]="chat.name === username">
         <span class="chat-cloud">
           <span class="chat-name" >
             {{ chat.name }}
@@ -30,6 +33,7 @@
       type="text"
       [(ngModel)]="chatMessage"
       (keyup.enter)="onSend(currentMessage.value); currentMessage.value = ''"
+      (keyup.esc)="currentMessage.value = ''"
     />
   </div>
   <div class="chat-title clickable" (click)="chatToggle()">

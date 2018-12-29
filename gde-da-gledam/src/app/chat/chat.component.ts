@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewChecked, ViewChild, ElementRef, ViewChildren } from '@angular/core';
 import { ChatService } from '../_services/chat.service';
 import { WebsocketService } from '../_services/websocket.service';
 
@@ -7,12 +7,14 @@ import { WebsocketService } from '../_services/websocket.service';
   templateUrl: "./chat.component.html",
   styleUrls: ["./chat.component.scss"]
 })
-export class ChatComponent implements OnInit {
+export class ChatComponent implements OnInit, AfterViewChecked {
   userId: string;
   username: string;
   isChatOn: boolean;
   chatMessage: string;
   chatHistory = [];
+  disableScrollDown = false;
+  @ViewChild('content') content: ElementRef;
 
   constructor(
     private chatService: ChatService,
@@ -22,11 +24,15 @@ export class ChatComponent implements OnInit {
   ngOnInit() {
     this.collectChatHistory();
     this.fetchId();
+    this.scrollToBottom();
+  }
+
+  ngAfterViewChecked() {   
+    this.scrollToBottom();
   }
 
   collectChatHistory() {
     this.chatService.messages.subscribe(data => {
-      console.log(data);
       this.chatHistory.push(data);
       localStorage.setItem("chat_history", JSON.stringify(this.chatHistory));
     });
@@ -53,8 +59,9 @@ export class ChatComponent implements OnInit {
       this.chatService.sendData({
         message: message,
         name: this.username
-      });
+      })
     }
+    this.disableScrollDown = false;
   }
 
   setUsername() {
@@ -67,7 +74,6 @@ export class ChatComponent implements OnInit {
 
   getUsername() {
     const storageName = localStorage.getItem("chat_username");
-    console.log(storageName);
     if (storageName && storageName !== '') {
       this.username = storageName;
     } else if (this.userId) {
@@ -79,9 +85,29 @@ export class ChatComponent implements OnInit {
 
   getChatHistory() {
     const storageHistory = localStorage.getItem("chat_history");
-    console.log(storageHistory);
     if (storageHistory && storageHistory !== "") {
       this.chatHistory = JSON.parse(storageHistory);
     } 
   }
+
+  scrollToBottom() {
+    if (this.disableScrollDown) {
+        return
+    }
+    try {
+        this.content.nativeElement.scrollTop = this.content.nativeElement.scrollHeight;
+    } catch (err) {}
+  }
+
+  onScroll() {
+    try {
+      let el = this.content.nativeElement
+      let atBottom = el.scrollHeight - el.scrollTop === el.clientHeight
+      if (atBottom) {
+        this.disableScrollDown = false
+    } else {
+        this.disableScrollDown = true
+    }
+    } catch (err) {}
+  } 
 }
