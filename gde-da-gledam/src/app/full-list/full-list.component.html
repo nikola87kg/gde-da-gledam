@@ -6,8 +6,12 @@
             <span>{{listName | titlecase}}</span>
             <span class="toolbar-spacer"></span>
             <button 
-                mat-raised-button
-                (click)="goToFrontPage()"> Vrati se</button>
+                mat-flat-button
+                class="back-button"
+                (click)="goToFrontPage()"> 
+                <mat-icon>keyboard_arrow_left</mat-icon> 
+                Vrati se
+            </button>
         </mat-toolbar-row>
 
     </mat-toolbar>

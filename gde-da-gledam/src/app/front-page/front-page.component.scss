@@ -13,13 +13,16 @@ mat-grid-tile {
 .url-list {
     height: 170px;
     margin-bottom: 15px;
+    overflow-y: auto;
 }
 
-.url-link {
+.url-link.url-link {
     margin: 0;
+    padding: 6px 15px;
     &:hover {
-        background: $light;
+        background: darken($light, 10);
         color: $secondary;
+        font-weight: bold;
     }
 }
 
@@ -47,4 +50,20 @@ mat-grid-tile {
     &:hover ~ .panda-logo {
         visibility: visible;
     }
+}
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px $primary ;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: $primary;
 }

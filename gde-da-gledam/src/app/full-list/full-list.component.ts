@@ -37,6 +37,6 @@ export class FullListComponent implements OnInit {
 
   goToFrontPage() {
     this.router.navigate(['/pocetna'])
-}
+  }
 
 }

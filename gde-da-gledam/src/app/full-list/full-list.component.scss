@@ -1,3 +1,5 @@
+@import '../../assets/scss/_variables.scss';
+
 mat-list {
     overflow-y: auto;
     height: calc(100vh - 200px);
@@ -8,10 +10,10 @@ mat-list {
     border-bottom: 1px solid rgb(189, 186, 189);
     vertical-align: middle;
     &:hover {
-        background: rgb(255, 251, 215);
-        border-bottom: 1px solid rgb(202, 42, 202);
+        background: lighten($secondary, 65);
+        border-bottom: 1px solid $secondary;
         a.url-link {
-            color: rgb(202, 42, 202); 
+            color: $secondary;
         }
     }
     a.url-link {
@@ -21,7 +23,7 @@ mat-list {
         vertical-align: middle;
     }
     span {
-        color: rgb(202, 42, 202);
+        color: gray;
         display: inline-block;
         vertical-align: middle;
     }
@@ -29,4 +31,12 @@ mat-list {
 
 .mat-list-base {
     padding: 0;
+}
+
+mat-toolbar-row {
+    background: $secondary;
+    color: white;
+    .back-button {
+        color: $secondary;
+    }
 }

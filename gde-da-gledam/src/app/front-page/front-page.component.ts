@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { LinkService } from '../_services/link.service';
 import { SharedService } from '../_services/shared.service';
+import { MatSnackBar } from '@angular/material';
+import { SnackbarComponent } from '../_services/snackbar/snackbar.component';
 
 
 export interface Tile {
@@ -19,8 +21,8 @@ export class FrontPageComponent implements OnInit {
   tiles: Tile[] = [
     { header: 'torenti', list: [] },
     { header: 'sport uživo', list: [] },
-    { header: 'filmovi online', list: [] },
-    { header: 'aplikacije i igrice', list: [] },
+    { header: 'filmovi & serije online', list: [] },
+    { header: 'aplikacije & igrice', list: [] },
     { header: 'titlovi', list: [] }
   ];
 
@@ -29,12 +31,14 @@ export class FrontPageComponent implements OnInit {
   constructor(
     public router: Router,
     public linkService: LinkService,
-    public sharedService: SharedService 
+    public sharedService: SharedService,
+    public snackBar: MatSnackBar
   ) {}
 
   ngOnInit() {
     this.getScreenWidth();
     this.getAllLinks();
+    this.delaySnackBar();
   }
 
   getScreenWidth() {
@@ -55,4 +59,22 @@ export class FrontPageComponent implements OnInit {
     this.router.navigate(['/lista/' + list])
   }
   
+  /* Snackbar */
+  delaySnackBar() {
+    let isBookMarkShown = localStorage.getItem('isBookMarkShown'); 
+    if(!isBookMarkShown) {
+      localStorage.setItem('isBookMarkShown', 'true'); 
+      setTimeout(() => {
+        this.openSnackBar();
+      }, 3000);
+    }
+  }
+
+  openSnackBar() {
+    this.snackBar.openFromComponent(SnackbarComponent, {
+      duration: 3000,
+      data: 'Pritisni <b>Ctrl+D</b> da me postaviš u favorite :)'
+    });
+  }
+
 }

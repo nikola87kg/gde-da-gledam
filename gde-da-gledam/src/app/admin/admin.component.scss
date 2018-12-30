@@ -1,3 +1,4 @@
+@import '../../assets/scss/_variables.scss';
 
 .form-input {
     width: 200px;
@@ -19,7 +20,7 @@
 .update-button {
     color: gray;
     &:hover {
-        color: rgb(230, 193, 28);
+        color: $primary;
         transform: scale(1.2);
     }
 }
@@ -27,7 +28,7 @@
 .delete-button {
     color: gray;
     &:hover {
-        color: rgb(235, 20, 20);
+        color: $secondary;
         transform: scale(1.2);
     }
 }
@@ -35,15 +36,31 @@
 mat-icon {
     text-align: left;
     &.checked {
-        color: green;
+        color: $primary;
     }
     &.not-checked {
-        color: red;
+        color: $secondary;
     }
 }
 
 mat-checkbox {
     margin: auto 15px;
+}
+
+:host ::ng-deep {
+    .mat-checkbox-checked .mat-checkbox-background {
+        background-color:  $primary ;
+    }
+    .mat-focused .mat-form-field-label{
+        color: $primary ;
+    } 
+    .mat-focused .mat-form-field-ripple {
+        background-color: $primary ;
+    }
+} 
+
+.mat-option.mat-active {
+    color: $primary !important;
 }
 
 button {

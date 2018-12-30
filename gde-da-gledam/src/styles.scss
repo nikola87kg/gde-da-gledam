@@ -43,7 +43,7 @@ flex: 1 1 auto;
     border-bottom: 1px solid rgb(226, 226, 226);
     padding: 5px;
     &:hover {
-        color: rgb(105, 27, 168);
+        color: $secondary;
     }
     &:last-of-type {
         border-bottom: 1px solid transparent;

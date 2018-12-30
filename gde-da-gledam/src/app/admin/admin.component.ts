@@ -14,15 +14,15 @@ export class AdminComponent implements OnInit {
 
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  createButton = {text: 'Kreiraj novi link', color: 'accent', type: 'create'}
-  updateButton = {text: 'Ažuriraj link', color: 'warn', type: 'update'}
+  createButton = {text: 'Kreiraj novi link', background: '#247A7A', type: 'create'}
+  updateButton = {text: 'Ažuriraj link', background: '#7a3924', type: 'update'}
   submitButton = this.createButton;
   updateItemId: string;
   previousPageIndex = 0;
   dataSource;
   linksfromDB = [];
   linkModel = {name: '', link: '',  category: '', vip: false};
-  categoryOptions = ['sport uživo', 'filmovi online', 'torenti', 'aplikacije i igrice', 'titlovi'];
+  categoryOptions = ['sport uživo', 'filmovi & serije online', 'torenti', 'aplikacije & igrice', 'titlovi'];
   displayedColumns = [ 'position', 'link', 'name', 'vip', 'category', 'created', 'update' , 'remove' ];
 
   constructor(private linkService: LinkService) { }

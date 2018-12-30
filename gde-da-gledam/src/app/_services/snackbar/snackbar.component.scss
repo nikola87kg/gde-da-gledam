@@ -1,0 +1,14 @@
+@import '../../../assets/scss/variables';
+
+div {
+    text-align: center;
+    font-size: 18px;
+    padding: 10px 20px;
+    background: white;
+    color: $primary;
+    box-shadow: 1px 1px 20px 1px white;
+}
+
+img {
+    height: 60px;
+}

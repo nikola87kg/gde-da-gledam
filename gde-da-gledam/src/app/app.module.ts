@@ -17,6 +17,7 @@ import { AdminGuard } from './admin/admin.guard';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptor } from './_services/auth.intereceptor';
 import { ChatComponent } from './chat/chat.component';
+import { SnackbarComponent } from './_services/snackbar/snackbar.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ChatComponent } from './chat/chat.component';
     FooterComponent,
     FrontPageComponent,
     FullListComponent,
-    ChatComponent
+    ChatComponent,
+    SnackbarComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +41,9 @@ import { ChatComponent } from './chat/chat.component';
   providers: [
       AdminGuard,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ],
+  entryComponents: [
+    SnackbarComponent
   ],
   bootstrap: [AppComponent]
 })
