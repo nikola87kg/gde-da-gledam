@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { LinkService } from '../_services/link.service';
 
 @Component({
@@ -15,7 +15,8 @@ export class FullListComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private linkService: LinkService
+    private linkService: LinkService,
+    private router: Router
     ) {
     this.activatedRoute.params.subscribe(params => {
           this.listName = params['list'];
@@ -33,5 +34,9 @@ export class FullListComponent implements OnInit {
       });
     })
   }
+
+  goToFrontPage() {
+    this.router.navigate(['/pocetna'])
+}
 
 }

@@ -17,8 +17,8 @@ export interface Tile {
 export class FrontPageComponent implements OnInit {
 
   tiles: Tile[] = [
-    { header: 'torrent', list: [] },
-    { header: 'sport', list: [] }
+    { header: 'torenti', list: [] },
+    { header: 'sport uživo', list: [] }
   ];
 
   screen: String;

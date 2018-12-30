@@ -27,3 +27,15 @@ mat-grid-tile {
    padding-left: 5px;
    margin: 10px 0;
 }
+
+.panda-logo {
+    position: absolute;
+    visibility: hidden;
+    right: 10px;
+    height: 50px;
+    margin: 0 20px; 
+}
+
+.complete-list-button:hover ~ .panda-logo {
+    visibility: visible;
+}

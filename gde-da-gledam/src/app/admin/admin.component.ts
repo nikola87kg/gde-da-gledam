@@ -22,7 +22,7 @@ export class AdminComponent implements OnInit {
   dataSource;
   linksfromDB = [];
   linkModel = {name: '', link: '',  category: '', vip: false};
-  categoryOptions = ['sport', 'online', 'torrent', 'apps', 'games'];
+  categoryOptions = ['sport uživo', 'filmovi online', 'torenti', 'aplikacije i igrice', 'titlovi'];
   displayedColumns = [ 'position', 'link', 'name', 'vip', 'category', 'created', 'update' , 'remove' ];
 
   constructor(private linkService: LinkService) { }

@@ -1,11 +1,13 @@
 <div class="page-wrapper">
 
-    <mat-toolbar color="accent">
+    <mat-toolbar>
 
         <mat-toolbar-row>
-            <span>{{listName}}</span>
+            <span>{{listName | titlecase}}</span>
             <span class="toolbar-spacer"></span>
-            <mat-icon class="toolbar-icon">accessibility_new</mat-icon>
+            <button 
+                mat-raised-button
+                (click)="goToFrontPage()"> Vrati se</button>
         </mat-toolbar-row>
 
     </mat-toolbar>
