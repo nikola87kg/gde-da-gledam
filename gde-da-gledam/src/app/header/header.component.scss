@@ -1,3 +1,9 @@
+@import '../../assets/scss/_variables.scss';
+
+mat-toolbar {
+    background: $light;
+    border-bottom: 2px solid $primary;
+}
 
 img {
     height: 40px;

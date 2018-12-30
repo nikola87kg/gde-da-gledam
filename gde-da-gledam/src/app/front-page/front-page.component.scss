@@ -1,6 +1,8 @@
+@import '../../assets/scss/_variables.scss';
 
 mat-grid-tile {
     border: 1px solid rgb(223, 218, 226);
+    background: $light;
 }
 
 .inner-tile {
@@ -16,15 +18,17 @@ mat-grid-tile {
 .url-link {
     margin: 0;
     &:hover {
-        background: rgb(243, 241, 247);
+        background: $light;
+        color: $secondary;
     }
 }
 
 .tile-header {
-   color: #673ab7;
+   color: $primary;
+   border-bottom: 2px solid $primary;
    font-size: 18px;
    margin-bottom: 10px;
-   padding-left: 5px;
+   padding: 5px 15px;
    margin: 10px 0;
 }
 
@@ -32,10 +36,15 @@ mat-grid-tile {
     position: absolute;
     visibility: hidden;
     right: 10px;
+    bottom: 20px;
     height: 50px;
     margin: 0 20px; 
 }
 
-.complete-list-button:hover ~ .panda-logo {
-    visibility: visible;
+.complete-list-button {
+    background: $secondary;
+    color: $light;
+    &:hover ~ .panda-logo {
+        visibility: visible;
+    }
 }

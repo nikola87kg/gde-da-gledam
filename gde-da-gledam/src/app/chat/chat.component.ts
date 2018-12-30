@@ -10,7 +10,7 @@ import { WebsocketService } from '../_services/websocket.service';
 export class ChatComponent implements OnInit, AfterViewChecked {
   userId: string;
   username: string;
-  chatMessage: string;
+  chatInput: string;
   chatHistory = [];
   disableScrollDown = false;
   @ViewChild('content') content: ElementRef;
@@ -105,4 +105,9 @@ export class ChatComponent implements OnInit, AfterViewChecked {
     }
     } catch (err) {}
   } 
+
+  onGrabMessage(event) {
+    let copyContent = event.target.childNodes[0].nodeValue;
+    this.chatInput = copyContent;
+  }
 }

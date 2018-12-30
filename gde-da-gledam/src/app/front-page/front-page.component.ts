@@ -18,7 +18,10 @@ export class FrontPageComponent implements OnInit {
 
   tiles: Tile[] = [
     { header: 'torenti', list: [] },
-    { header: 'sport uživo', list: [] }
+    { header: 'sport uživo', list: [] },
+    { header: 'filmovi online', list: [] },
+    { header: 'aplikacije i igrice', list: [] },
+    { header: 'titlovi', list: [] }
   ];
 
   screen: String;

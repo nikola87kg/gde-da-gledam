@@ -4,8 +4,9 @@
     <h5
       class="chat-header clickable"
       (change)="setUsername()" >
-      Izaberi ime:
+      <span>Izaberi ime:</span>
       <input
+        mat-input
         class="chat-username"
         maxlength="25"
         [(ngModel)]="username"
@@ -18,26 +19,29 @@
       class="chat-history" 
       (scroll)="onScroll()">
       <p 
-        *ngFor="let chat of chatHistory" 
+        #mess{{i}}
+        *ngFor="let chat of chatHistory; let i = index" 
         class="single-message"
+        (click)="onGrabMessage($event)"
         [class.user]="chat.name === username">
         <span class="chat-cloud">
           <span class="chat-name" >
             {{ chat.name }}
           </span>
           <br />
-          {{ chat.message }}
+          <span>{{ chat.message }}</span>
+          
         </span>
       </p>
     </div>
 
     <!-- Chat input -->
     <input
-      #currentMessage
-      class="chat-message"
+      #chat
+      class="chat-input"
       placeholder="Kucaj poruku..."
-      [(ngModel)]="chatMessage"
-      (keyup.enter)="onSend(currentMessage.value); currentMessage.value = ''"
-      (keyup.esc)="currentMessage.value = ''"
+      [(ngModel)]="chatInput"
+      (keyup.enter)="onSend(chat.value); chat.value = '' "
+      (keyup.esc)="chat.value = '' " 
     />
   </div>
