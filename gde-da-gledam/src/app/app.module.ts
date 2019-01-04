@@ -18,6 +18,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptor } from './_services/auth.intereceptor';
 import { ChatComponent } from './chat/chat.component';
 import { SnackbarComponent } from './_services/snackbar/snackbar.component';
+import { AuthComponent } from './auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { SnackbarComponent } from './_services/snackbar/snackbar.component';
     FrontPageComponent,
     FullListComponent,
     ChatComponent,
-    SnackbarComponent
+    SnackbarComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,

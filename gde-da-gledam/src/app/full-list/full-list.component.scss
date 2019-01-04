@@ -1,42 +1,34 @@
 @import '../../assets/scss/_variables.scss';
 
-mat-list {
-    overflow-y: auto;
-    height: calc(100vh - 200px);
-}
-
-
-.mat-list-item {
-    border-bottom: 1px solid rgb(189, 186, 189);
-    vertical-align: middle;
-    &:hover {
-        background: lighten($secondary, 65);
-        border-bottom: 1px solid $secondary;
-        a.url-link {
-            color: $secondary;
-        }
-    }
-    a.url-link {
-        padding-top: 15px;
-        width: 100%;
-        height: 100%;
-        vertical-align: middle;
-    }
-    span {
-        color: gray;
-        display: inline-block;
-        vertical-align: middle;
-    }
-}
-
-.mat-list-base {
-    padding: 0;
-}
-
 mat-toolbar-row {
-    background: $secondary;
-    color: white;
+    border-bottom: 2px solid $primary;
+    background: #fafafa;
+    color:  $primary;
     .back-button {
-        color: $secondary;
+        background-color: $primary;
+        color: white;
     }
+}
+
+mat-card {
+    width: calc(100% / 5 - 20px);
+    margin: 10px;
+    display: inline-block;
+    &:hover {
+        box-shadow: 1px 1px 20px 1px gray;
+    }
+}
+
+mat-card-title {
+    color: $secondary;
+}
+
+button {
+    color: $secondary;
+    text-transform: uppercase;
+}
+
+img {
+    max-width: 100%;
+    margin: 0;
 }

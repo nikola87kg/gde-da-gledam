@@ -4,11 +4,10 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 
 export interface UserInterface {
-    username: string;
     email: string;
     password: string;
-    admin: boolean;
-    token: string;
+    role?: string;
+    token?: string;
 }
 
 
@@ -17,20 +16,35 @@ export class AuthService {
     constructor(private http: HttpClient) {}
 
     token = '';
-    baseUrl = environment.baseUrl;
+    base_url = environment.base_url;
 
     getToken() {
-        return localStorage.getItem('auth_token'); 
+        return localStorage.getItem('gdedagledam_token'); 
+    }
+
+    getRole() {
+        return localStorage.getItem('gdedagledam_role'); 
     }
 
     /* Register New User */
     registerUser(payload) {
-        return this.http.post(this.baseUrl + '/auth/register', payload);
+        return this.http.post<{object: any}>(
+            this.base_url + '/auth/register', payload
+        );
     }
 
     /* Login Existing User */
     loginUser(payload) {
-        return this.http.post<UserInterface>(this.baseUrl + '/auth/login', payload)
+        return this.http.post<UserInterface>(
+            this.base_url + '/auth/login', payload
+        )
+    }
+
+    /* Login Existing User */
+    loginFacebook(payload) {
+        return this.http.post<UserInterface>(
+            this.base_url + '/auth/facebook', payload
+        )
     }
 
 }

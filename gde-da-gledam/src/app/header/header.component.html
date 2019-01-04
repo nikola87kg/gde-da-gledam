@@ -1,19 +1,28 @@
 <mat-toolbar>
-
-  <mat-toolbar-row>
-    <span class="clickable" (click)="goToFrontPage()">
-      <img 
-        src="/assets/logo/gde-da-gledam.svg" 
-        alt="Gde da gledam logo">
-    </span>
-    <span 
-      class="toolbar-spacer">
-    </span>
-    <mat-icon 
-      class="toolbar-icon clickable" 
-      (click)="goToAdminPage()">
-        supervised_user_circle
-    </mat-icon>
-  </mat-toolbar-row>
-
+	<mat-toolbar-row>
+		<span class="clickable" (click)="onNavigate('/home')">
+			<img
+				src="/assets/logo/gde-da-gledam.svg"
+				alt="Gde da gledam logo" />
+		</span>
+		<span class="toolbar-spacer"> </span>
+		<button 
+			mat-raised-button 
+			class="header-button admin"
+			(click)="onNavigate('/admin')">
+			Admin Panel
+			<mat-icon class="toolbar-icon clickable" >
+				dashboard
+			</mat-icon>
+		</button>
+		<button 
+			mat-raised-button 
+			class="header-button auth"
+			(click)="onNavigate('/login')">
+			Register / Login
+			<mat-icon class="toolbar-icon clickable" >
+				account_circle
+			</mat-icon>
+		</button>
+	</mat-toolbar-row>
 </mat-toolbar>

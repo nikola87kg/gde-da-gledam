@@ -60,7 +60,7 @@ mat-drawer-container.mat-drawer-container {
 }
 
 .open-chat.mat-raised-button {
-    position: absolute;
+    position: fixed;
     background: $primary;
     color: $light;
     z-index: 999;

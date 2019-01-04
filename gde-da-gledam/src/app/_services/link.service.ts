@@ -16,7 +16,7 @@ export class LinkService {
     constructor(private http: HttpClient) {}
 
     token = '';
-    baseUrl = environment.baseUrl;
+    base_url = environment.base_url;
 
     getToken() {
         return localStorage.getItem('auth_token'); 
@@ -24,23 +24,23 @@ export class LinkService {
 
     /* Get Links */
     getAll() {
-        return this.http.get<LinkInterface[]>(this.baseUrl + '/link');
+        return this.http.get<LinkInterface[]>(this.base_url + '/link');
     }
 
     /* Create new link */
     post(payload) {
-        return this.http.post<LinkInterface>(this.baseUrl + '/link', payload)
+        return this.http.post<LinkInterface>(this.base_url + '/link', payload)
     }
 
 
     /* Update a link */
     put(payload, id) {
-        return this.http.put<LinkInterface>(this.baseUrl + '/link/' + id, payload)
+        return this.http.put<LinkInterface>(this.base_url + '/link/' + id, payload)
     }
 
     /* Delete a link */
     delete(id) {
-        return this.http.delete<LinkInterface>(this.baseUrl + '/link/' + id)
+        return this.http.delete<LinkInterface>(this.base_url + '/link/' + id)
     }
 
 }

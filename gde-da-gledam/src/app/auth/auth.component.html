@@ -1,0 +1,73 @@
+<button (click)="loginFacebook()">Facebook login</button>
+
+<mat-grid-list cols="2" rowHeight="400px" gutterSize="50px">
+	<!-- Register Form -->
+	<mat-grid-tile>
+		<form #registerForm class="register-form" (submit)="onRegister()">
+			<!-- Title -->
+			<h4>Registracija</h4>
+			<p>* Ukoliko nemaš napravljen nalog</p>
+			<!-- Username -->
+			<mat-form-field appearance="outline">
+				<mat-label>E-mail</mat-label>
+				<span matPrefix>
+					<mat-icon> supervised_user_circle </mat-icon>
+				</span>
+				<input
+					matInput
+					name="regEmail"
+					[(ngModel)]="registerUser.email"
+					placeholder="Unesi validan e-mail"
+				/>
+			</mat-form-field>
+			<!-- Password -->
+			<mat-form-field appearance="outline">
+				<mat-label>Lozinka</mat-label>
+				<span matPrefix> <mat-icon> security </mat-icon> </span>
+				<input
+					matInput
+					type="password"
+					[(ngModel)]="registerUser.password"
+					name="regPassword"
+					placeholder="Izaberi lozinku"
+				/>
+			</mat-form-field>
+			<!-- Submit -->
+			<button type="submit" mat-raised-button>Registruj se</button>
+		</form>
+	</mat-grid-tile>
+
+	<!-- Login Form -->
+	<mat-grid-tile>
+		<form #loginForm class="login-form" (submit)="onLogin()">
+			<!-- Title -->
+			<h4>Logovanje</h4>
+			<p>* Ukoliko imaš postojeći nalog</p>
+			<!-- Username -->
+			<mat-form-field appearance="outline">
+				<mat-label>Korisničko ime</mat-label>
+				<span matPrefix>
+					<mat-icon> supervised_user_circle </mat-icon>
+				</span>
+				<input
+					matInput
+					[(ngModel)]="loginUser.email"
+					name="loginEmail"
+					placeholder="Izaberi korisničko ime"
+				/>
+			</mat-form-field>
+			<mat-form-field appearance="outline">
+				<mat-label>Lozinka</mat-label>
+				<span matPrefix> <mat-icon> security </mat-icon> </span>
+				<input
+					matInput
+					type="password"
+					[(ngModel)]="loginUser.password"
+					name="loginPassword"
+					placeholder="Izaberi lozinku"
+				/>
+			</mat-form-field>
+			<button type="submit" mat-raised-button>Uloguj se</button>
+		</form>
+	</mat-grid-tile>
+</mat-grid-list>

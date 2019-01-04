@@ -3,10 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { FrontPageComponent } from './front-page/front-page.component';
 import { FullListComponent } from './full-list/full-list.component';
 import { AdminGuard } from './admin/admin.guard';
+import { AuthComponent } from './auth/auth.component';
 
 const routes: Routes = [
-  { path: 'pocetna', component: FrontPageComponent },
+  { path: 'pocetna',     component: FrontPageComponent },
   { path: 'lista/:list', component: FullListComponent },
+  { path: 'login',       component: AuthComponent },
   { path: 'admin', loadChildren: './admin/admin.module#AdminModule' },
   { path: '',       redirectTo: '/pocetna',  pathMatch: 'full'  },
   { path: '**',     redirectTo: '/pocetna'   }

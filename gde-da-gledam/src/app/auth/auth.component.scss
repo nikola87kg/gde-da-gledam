@@ -1,0 +1,59 @@
+@import '../../assets/scss/_variables.scss';
+
+mat-grid-list {
+    margin: 20px 50px;
+}
+
+mat-grid-tile {
+    border: 1px solid rgb(219, 219, 219);
+    border-radius: 10px;
+    padding: 20px 50px;
+}
+
+form {
+    margin: 20px;
+    font-size: 24px;
+    h4 {
+        font-weight: normal;
+    }
+    button {
+        color: white;
+    }
+    p {
+        font-size: 14px;
+        margin-top: 5px;
+        color: gray;
+    }
+}
+
+:host ::ng-deep {
+    .mat-form-field-appearance-outline .mat-form-field-prefix {
+        top: 0;
+        .mat-icon {
+            font-size: 22px;
+            margin-right: 10px;
+            margin-bottom: 4px;
+        }
+    }
+}
+
+.register-form {
+    $theme-color: $primary;
+    h4          { color: $theme-color; }
+    button      { background: $theme-color; }
+    .mat-icon   { color: $theme-color; }
+}
+
+.login-form {
+    $theme-color: $secondary;
+    h4          { color: $theme-color; }
+    button      { background: $theme-color; }
+    .mat-icon   { color: $theme-color; }
+}
+
+mat-form-field {
+    font-size: 18px;
+    display: block;
+    width: 300px;
+    margin: 20px 0;
+}

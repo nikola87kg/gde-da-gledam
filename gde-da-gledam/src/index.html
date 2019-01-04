@@ -1,54 +1,73 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>GdeDaGledam.rs</title>
-  <base href="/">
+	<head>
+		<meta charset="utf-8" />
+		<title>GdeDaGledam.rs</title>
+		<base href="/" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#1976d2">
-  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" type="image/x-icon" href="favicon.ico" />
+		<link rel="manifest" href="manifest.json" />
+		<meta name="theme-color" content="#1976d2" />
+		<link
+			href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/icon?family=Material+Icons"
+			rel="stylesheet"
+		/>
 
-  <style>
-    .root-wrapper {
-      text-align: center;
-      padding-top: 200px;
-      height: 500px;
-    }
-    .root-image {
-      width: 500px;
-      height: auto;
-    }
-    .root-text {
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 24px;
-      margin-top: 20px;
-    }
-    .root-headline {
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 42px;
-      margin-top: 20px;
-    }
-    .root-headline b {
-      color: #247A7A;
-    }
-  </style>
-</head>
-<body>
-  <px-root>
-    <div class="root-wrapper">
-        <img
-          class="root-image" 
-          src="./assets/logo/gde-da-gledam-panda.png" 
-          alt="Gde da gledam Logo">
-          <div class="root-headline"><b>G</b>de<b>d</b>a<b>G</b>ledam.rs</div>
-          <div class="root-text">Prikupljam linkove za tebe, trenutak...</div>
-          
-    </div>
-  </px-root>
-  <noscript>Please enable JavaScript to continue using this application.</noscript>
-</body>
+		<style>
+			.root-wrapper {
+				text-align: center;
+				padding-top: 200px;
+				height: 500px;
+			}
+			.root-image {
+				width: 500px;
+				height: auto;
+				animation: spin 2s linear infinite;
+			}
+			.root-text {
+				font-family: Arial, Helvetica, sans-serif;
+				font-size: 24px;
+				margin-top: 20px;
+			}
+			.root-headline {
+				font-family: Arial, Helvetica, sans-serif;
+				font-size: 42px;
+				margin-top: 20px;
+			}
+			.root-headline b {
+				color: #247a7a;
+			}
+			@keyframes spin { 
+				0% {transform:rotate(0); } 
+				50% {transform:rotate(20deg); } 
+				100% {transform:rotate(0); } 
+			}
+		</style>
+	</head>
+	<body>
+		<px-root>
+			<div class="root-wrapper">
+				<img
+					class="root-image"
+					src="./assets/logo/gde-da-gledam-panda.png"
+					alt="Gde da gledam Logo"
+				/>
+				<div class="root-headline">
+					<b>G</b>de<b>d</b>a<b>G</b>ledam.rs
+				</div>
+				<div class="root-text">
+					Prikupljam linkove za tebe, trenutak...
+				</div>
+			</div>
+		</px-root>
+		<noscript
+			>Please enable JavaScript to continue using this
+			application.</noscript
+		>
+	</body>
 </html>

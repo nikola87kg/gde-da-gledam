@@ -13,3 +13,18 @@ img {
 .toolbar-icon {
     margin-right: 20px;
 }
+
+.header-button {
+    margin-left: 10px;
+    color: white;
+    mat-icon {
+        font-size: 20px;
+        margin: 0;
+    }
+    &.auth {
+        background: $primary;
+    }
+    &.admin {
+        background: $secondary;
+    }
+}
