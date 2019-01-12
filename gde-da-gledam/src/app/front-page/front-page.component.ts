@@ -27,6 +27,7 @@ export class FrontPageComponent implements OnInit {
   ];
 
   screen: String;
+  columns: number;
 
   constructor(
     public router: Router,
@@ -42,7 +43,22 @@ export class FrontPageComponent implements OnInit {
   }
 
   getScreenWidth() {
-    this.sharedService.screen.subscribe( result => this.screen = result);
+    this.sharedService.screen.subscribe( result => {
+      this.screen = result
+      this.setColumns();
+    }
+      );
+  }
+
+  setColumns() {
+    let screen = this.screen;
+    if (screen === 'large') {
+      this.columns = 3;
+    } else if (screen === 'medium') {
+      this.columns = 2;
+    } else if (screen === 'small') {
+      this.columns = 1;
+    }  
   }
 
   getAllLinks() {

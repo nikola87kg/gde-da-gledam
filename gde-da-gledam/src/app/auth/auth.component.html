@@ -1,4 +1,12 @@
-<button (click)="loginFacebook()">Facebook login</button>
+<button mat-raised-button (click)="OnFacebookLogin()">Facebook Login</button>
+<br>
+<br>
+
+<button mat-raised-button (click)="onGoogleLogin()">Google Login</button>
+<br>
+<br>
+
+<button mat-raised-button (click)="onSocialLogout()">Logout</button>
 
 <mat-grid-list cols="2" rowHeight="400px" gutterSize="50px">
 	<!-- Register Form -->
@@ -71,3 +79,9 @@
 		</form>
 	</mat-grid-tile>
 </mat-grid-list>
+
+<img [src]="user?.photoUrl">
+<div>
+  <h4>{{ user?.name }}</h4>
+  <p>{{ user?.email }}</p>
+</div>

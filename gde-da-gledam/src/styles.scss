@@ -15,7 +15,7 @@ body, h1, h2, h3, h4, h5, h6, a, p {
 }
 
 .page-wrapper {
-    height: calc(100vh - 64px);
+    height: calc(100vh - 67px);
     padding: 20px;
     &.front {
         background: $dark;
@@ -55,8 +55,12 @@ mat-sidenav {
     max-width: 400px;
 }
 
+.mat-drawer {
+    min-width: 400px;
+}
+
 mat-drawer-container.mat-drawer-container {
-    height: calc(100% - 64px);
+    height: calc(100% - 67px);
 }
 
 .open-chat.mat-raised-button {

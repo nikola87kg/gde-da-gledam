@@ -1,18 +1,19 @@
 <div class="page-wrapper front">
 
-    <mat-grid-list cols="3" rowHeight="300px" gutterSize="22px">
+    <mat-grid-list 
+        [cols]="columns" 
+        rowHeight="300px" 
+        gutterSize="22px">
         <!-- Single Tile -->
         <mat-grid-tile  *ngFor="let tile of tiles" >
 
             <div class="inner-tile">
-
                 <!-- Header -->
                 <h4 
                     class="tile-header clickable"
                     (click)="goToList(tile.header)">
                     {{tile.header | titlecase}}
                 </h4>
-
                 <!-- URL List -->
                 <div class="url-list">
                     <a 

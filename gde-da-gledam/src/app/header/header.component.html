@@ -6,7 +6,7 @@
 				alt="Gde da gledam logo" />
 		</span>
 		<span class="toolbar-spacer"> </span>
-		<button 
+		<button *ngIf="user && user.id===adminID "
 			mat-raised-button 
 			class="header-button admin"
 			(click)="onNavigate('/admin')">
@@ -15,7 +15,7 @@
 				dashboard
 			</mat-icon>
 		</button>
-		<button 
+		<button *ngIf="!user"
 			mat-raised-button 
 			class="header-button auth"
 			(click)="onNavigate('/login')">
@@ -23,6 +23,23 @@
 			<mat-icon class="toolbar-icon clickable" >
 				account_circle
 			</mat-icon>
+		</button>
+		<button *ngIf="user"
+			mat-raised-button 
+			class="header-button auth"
+			(click)="onLogout()">
+			Logout
+			<mat-icon class="toolbar-icon clickable" >
+				clear
+			</mat-icon>
+		</button>
+		<button *ngIf="user"
+			mat-flat-button 
+			class="header-button user">
+			<img
+				[title]="user.name"
+				[src]="user.photoUrl"
+				[alt]="user.name">
 		</button>
 	</mat-toolbar-row>
 </mat-toolbar>

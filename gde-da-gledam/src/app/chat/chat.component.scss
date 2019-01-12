@@ -19,9 +19,11 @@
     margin: 0;
     border-bottom: 1px solid $secondary;
     padding: 10px 20px;
+    font-size: 18px;
+    color:  black;
     span {
-        font-size: 18px;
-        color:  black;
+        font-size: 16px;
+        color:  gray;
         font-weight: normal;
     }
     .chat-username {
@@ -49,16 +51,25 @@
         font-size: 16px;
         display: block;
         margin: 5px;
-        max-width: 320px;
+        max-width: 380px;
         text-align: left;
         color: black;
         word-break: break-word;
+        .chat-icon {
+            border-radius: 5px;
+            height: 50px;
+            margin: 0 8px;
+            vertical-align: top;
+            float: left;
+        }
         .chat-cloud {
+            vertical-align: top;
             background: lighten($light, 4);
             border: 1px dotted gray;
             padding: 5px 20px 5px 10px;
-            border-radius: 10px;
-            display: inline-block;
+            border-radius: 5px;
+            display: inline-block;    
+            max-width: 270px;
             cursor: grab;
             &:hover {
                 background: $light;
@@ -78,6 +89,9 @@
                     background: lighten( $primary, 62);
                 }
             }
+            .chat-icon {
+                float: right;
+            }
         }
     }
 }
@@ -91,10 +105,73 @@
     background: lighten( $primary, 65);
     border-top: 1px solid $primary;
     padding: 10px 15px;
+    padding-right: 85px;
     font-size: 15px;
     &:focus {
         background: lighten( $primary, 60);
     }
+}
+
+.chat-login {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    div {
+        font-size: 16px;
+        padding: 10px 15px;
+        background: rgb(70, 158, 136);
+        color: white;
+        text-align: center;
+    }
+    button {
+        width: 100%;
+        margin: 0;
+        border-radius: 0;
+        height: 50px;
+        background: white;
+        img {
+            height: 20px;
+            margin: 0 5px;
+        }
+        &:hover {
+            background: rgb(224, 224, 224);
+            img {
+                transform: scale(1.05);
+            }
+        }
+    }
+}
+
+.close-chat {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.chat-header span.close-drawer {
+    float: right; 
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: -5px;
+    margin-right: -5px;
+    border: 1px solid $primary;
+    color: $primary;
+    border-radius: 50%;
+    padding: 0px 5px 2px 5px;
+    &:hover {
+        font-weight: bold;
+        transform: scale(1.05);
+    }
+}
+
+.send-message-button {
+    background: $primary;
+    color: white;
+    position: absolute;
+    bottom: 0;
+    right: 5px;
 }
 
 /* SCROLLBAR */

@@ -20,6 +20,33 @@ import { ChatComponent } from './chat/chat.component';
 import { SnackbarComponent } from './_services/snackbar/snackbar.component';
 import { AuthComponent } from './auth/auth.component';
 
+/* Social Login */
+import { SocialLoginModule, AuthServiceConfig } from 'angularx-social-login';
+import { GoogleLoginProvider} from 'angularx-social-login';
+
+// const fbLoginOptions: LoginOpt = {
+//   scope: 'pages_messaging,pages_messaging_subscriptions,email,pages_show_list,manage_pages',
+//   return_scopes: true,
+//   enable_profile_selector: true
+// };
+
+let config = new AuthServiceConfig([
+  {
+    id: '41643208031-pm80vpelmiafks1ui00jhgp029vogjkt.apps.googleusercontent.com',
+    provider: new GoogleLoginProvider('41643208031-pm80vpelmiafks1ui00jhgp029vogjkt.apps.googleusercontent.com')
+  },
+  // {
+  //   id: '346737786057293',
+  //   provider: new FacebookLoginProvider('346737786057293', fbLoginOptions)
+  // }
+]);
+
+// google-secret: '3pvO-zOGlyDGrUjRNymBYf_V',
+
+export function provideConfig() {
+  return config;
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,11 +65,13 @@ import { AuthComponent } from './auth/auth.component';
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     BrowserAnimationsModule,
     AppMaterialModule,
-    FormsModule
+    FormsModule,
+    SocialLoginModule
   ],
   providers: [
-      AdminGuard,
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+    AdminGuard,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide: AuthServiceConfig, useFactory: provideConfig }
   ],
   entryComponents: [
     SnackbarComponent

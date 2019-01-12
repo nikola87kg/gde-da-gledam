@@ -1,16 +1,13 @@
 
   <div  class="chat-live">
     <!-- Choose Name -->
-    <h5
-      class="chat-header clickable"
-      (change)="setUsername()" >
-      <span>Izaberi ime:</span>
-      <input
-        mat-input
-        class="chat-username"
-        maxlength="25"
-        [(ngModel)]="username"
-        (click)="onNameChange($event)"/>
+    <h5 class="chat-header" *ngIf="username && userMail">
+      <span 
+        (click)="onDrawerClose()" 
+        class="close-drawer">
+        x
+      </span>
+      {{username}} <span>({{userMail}})</span>
     </h5>
 
     <!-- Chat history -->
@@ -30,18 +27,43 @@
           </span>
           <br />
           <span>{{ chat.message }}</span>
-          
         </span>
+        <img class="chat-icon" [src]="chat.photo" alt="icon">
       </p>
     </div>
 
     <!-- Chat input -->
-    <input
-      #chat
-      class="chat-input"
-      placeholder="Kucaj poruku..."
-      [(ngModel)]="chatInput"
-      (keyup.enter)="onSend(chat.value); chat.value = '' "
-      (keyup.esc)="chat.value = '' " 
-    />
+    <ng-container *ngIf="socialUser">
+      <input
+        #chatText
+        class="chat-input"
+        placeholder="Kucaj poruku..."
+        [(ngModel)]="chatInput"
+        (keyup.enter)="onSend(chatText.value); chatText.value = '' "
+        (keyup.esc)="chatText.value = '' " />
+  
+      <button 
+        mat-flat-button 
+        class="send-message-button"
+        (click)="onSend(chatText.value); chatText.value = '' ">
+        Pošalji
+      </button>
+    </ng-container>
+    <!-- Chat Login -->
+    <div class="chat-login" *ngIf="!socialUser">
+      <!-- <button 
+        mat-flat-button 
+        class="facebook" 
+        (click)="onFacebookLogin()">
+        <img src="./assets/logo/facebook-logo.png" alt="Facebook">
+      </button> -->
+      <button 
+        mat-flat-button  
+        class="google" 
+        (click)="onGoogleLogin()">
+          Uloguj se pomoću
+          <img src="./assets/logo/google-logo.png" alt="Google">
+          i počni da četuješ
+      </button>
+    </div>
   </div>

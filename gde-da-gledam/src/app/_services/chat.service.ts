@@ -6,12 +6,11 @@ import { Subject, BehaviorSubject } from 'rxjs';
 export class ChatService {
 
   messages: Subject<any>;
-  id = new BehaviorSubject(null);
 
   constructor(private websocketService: WebsocketService) {
     this.messages = websocketService.connect();
   }
-
+  
   sendData(data) {
     this.messages.next(data);
   }

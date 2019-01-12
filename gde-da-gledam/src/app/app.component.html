@@ -1,8 +1,11 @@
 <px-header></px-header>
 
 <mat-drawer-container >
-  <mat-drawer #drawer mode="side" position="end">
-    <px-chat></px-chat>
+  <mat-drawer #drawer 
+    [mode]="drawerMode" 
+    opened="true"
+    position="end">
+    <px-chat (toggler)="togglerFromChat($event)"></px-chat>
   </mat-drawer>
 
   <mat-drawer-content>

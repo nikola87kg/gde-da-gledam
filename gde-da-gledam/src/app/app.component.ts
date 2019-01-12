@@ -1,6 +1,7 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, ViewChild } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { SharedService } from './_services/shared.service';
+import { overrideComponentView } from '@angular/core/src/view';
 
 @Component({
     selector: 'px-root',
@@ -11,6 +12,8 @@ export class AppComponent implements OnInit {
 
     title = 'gdeDaGledam.rs';
     screen: String;
+    drawerMode = 'side';
+    @ViewChild('drawer') drawer;
 
     constructor(
         public router: Router,
@@ -21,6 +24,10 @@ export class AppComponent implements OnInit {
 
     ngOnInit() {
         this.checkWidth();
+    }
+
+    togglerFromChat(e) {
+        this.drawer.toggle();
     }
 
     scrollTop() {
@@ -42,10 +49,13 @@ export class AppComponent implements OnInit {
         const innerWidth = window.innerWidth;
         if (innerWidth > 1028) {
             this.screen = 'large';
+            this.drawerMode = 'side';
         } else if (innerWidth > 768) {
             this.screen = 'medium';
+            this.drawerMode = 'over';
         } else {
             this.screen = 'small';
+            this.drawerMode = 'over';
         }
         this.sharedService.screen.next(this.screen);
     }

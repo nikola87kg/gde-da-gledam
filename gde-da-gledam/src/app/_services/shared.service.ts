@@ -9,5 +9,6 @@ export class SharedService {
     constructor() {}
 
     screen = new BehaviorSubject(null);
+    user = new BehaviorSubject(null);
 
 }

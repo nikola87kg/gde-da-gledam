@@ -27,4 +27,11 @@ img {
     &.admin {
         background: $secondary;
     }
+    &.user {
+        background: transparent;
+        img {
+            margin: 0;
+            border-radius: 5px;
+        }
+    }
 }
